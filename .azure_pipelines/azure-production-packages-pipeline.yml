@@ -1,0 +1,48 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+pr:
+ - none
+ 
+trigger:
+ - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build'
+  inputs:
+    command: 'build'
+    projects: '$(solution)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Test'
+  inputs:
+    command: 'test'
+    projects: '$(solution)'
+
+# # - task: DotNetCoreCLI@2
+  # # displayName: 'Packing CrossCutting packages'
+  # # inputs:
+    # # command: 'pack'
+    # # packagesToPack: '$(solution)'
+    # # versioningScheme: 'off'
+
+# # - task: NuGetCommand@2
+  # # displayName: 'Publish packages'
+  # # inputs:
+    # # command: 'push'
+    # # packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    # # nuGetFeedType: 'internal'
+    # # publishVstsFeed: 'b6656621-f150-458d-b63e-2e2b853337e7'
+    # # allowPackageConflicts: true
+
