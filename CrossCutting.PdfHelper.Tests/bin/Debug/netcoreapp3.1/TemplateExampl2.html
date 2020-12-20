@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>DocPlanner</title>
+    <style>
+        body {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            color: black;
+        }
+
+        .header {
+            position: fixed;
+            left: 30px;
+            top: 10px;
+        }
+
+        .fieldName {
+            font-weight: bold
+        }
+
+        .fieldText {
+            color: darkgray
+        }
+
+        .separator {
+            background: lightgray;
+        }
+
+        .description {
+            color: darkgray;
+        }
+
+        .filename {
+            color: darkgray;
+        }
+
+        div {
+            page-break-inside: avoid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+
+    <div>
+        {{#with Patient}}
+        <h1 class="patient">{{Name}}</h1>
+        <div class="patientData">
+            <p>
+                <span class="fieldName">DNI</span><span class="fieldText">{{DocumentNumber}}</span>
+                <span class="fieldName">Date of birth</span><span class="fieldText">{{DateOfBirth}}</span>
+                <span class="fieldName">Gender</span><span class="fieldText">{{Gender}}</span>
+            </p>
+            <p>
+                <span class="fieldName">Place of residence</span><span class="fieldText">{{Address}}</span>
+            </p>
+        </div>
+        {{/with}}
+        {{#with Patient.LegalRepresentative}}
+        <div>
+            <hr class="separator" />
+            <h2>Legal representative</h2>
+            <p>
+                <span class="fieldName">Name</span><span class="fieldText">{{Name}}</span>
+            </p>
+            <p>
+                <span class="fieldName">Relationship</span><span class="fieldText">{{Relationship}}</span>
+                <span class="fieldName">Profession</span><span class="fieldText">{{Profession}}</span>
+            </p>
+            <p>
+                <span class="fieldName">Place of residence</span><span class="fieldText">{{Address}}</span>
+            </p>
+        </div>
+        {{/with}}
+    </div>
+
+    <div>
+        <h2>Visit History Record</h2>
+        <section>
+            <p>
+                <span class="fieldName">{{EpisodeDate}}</span><span class="fieldText">{{DoctorName}}</span>
+            </p>
+            <div>
+                {{#each Sections}}
+                <h4>{{Name}}</h4>
+                    <p class="description">{{Description}}</p>
+                {{/each}}
+            </div>
+            <div>
+                <h4>Files attached</h4>
+                {{#each Files}}
+                <ul>
+                    <li class="filename">{{FileName}}</li>
+                </ul>
+                {{/each}}
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+C:\Users\Jesus\repos\CrossCutting\CrossCutting.PdfHelper\bin\Debug\netstandard2.0\CrossCutting.PdfHelper.deps.json
+C:\Users\Jesus\repos\CrossCutting\CrossCutting.PdfHelper\bin\Debug\netstandard2.0\CrossCutting.PdfHelper.dll
+C:\Users\Jesus\repos\CrossCutting\CrossCutting.PdfHelper\bin\Debug\netstandard2.0\CrossCutting.PdfHelper.pdb
+C:\Users\Jesus\repos\CrossCutting\CrossCutting.PdfHelper\obj\Debug\netstandard2.0\CrossCutting.PdfHelper.csprojAssemblyReference.cache
+C:\Users\Jesus\repos\CrossCutting\CrossCutting.PdfHelper\obj\Debug\netstandard2.0\CrossCutting.PdfHelper.AssemblyInfoInputs.cache
+C:\Users\Jesus\repos\CrossCutting\CrossCutting.PdfHelper\obj\Debug\netstandard2.0\CrossCutting.PdfHelper.AssemblyInfo.cs
+C:\Users\Jesus\repos\CrossCutting\CrossCutting.PdfHelper\obj\Debug\netstandard2.0\CrossCutting.PdfHelper.csproj.CoreCompileInputs.cache
+C:\Users\Jesus\repos\CrossCutting\CrossCutting.PdfHelper\obj\Debug\netstandard2.0\CrossCutting.PdfHelper.dll
+C:\Users\Jesus\repos\CrossCutting\CrossCutting.PdfHelper\obj\Debug\netstandard2.0\CrossCutting.PdfHelper.pdb

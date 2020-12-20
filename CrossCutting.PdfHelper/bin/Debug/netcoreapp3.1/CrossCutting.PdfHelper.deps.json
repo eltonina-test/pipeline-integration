@@ -1,0 +1,87 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "CrossCutting.PdfHelper/1.0.0": {
+        "dependencies": {
+          "HtmlRenderer.PdfSharp": "1.5.0.6"
+        },
+        "runtime": {
+          "CrossCutting.PdfHelper.dll": {}
+        }
+      },
+      "HtmlRenderer.Core/1.5.0.5": {
+        "runtime": {
+          "lib/net45/HtmlRenderer.dll": {
+            "assemblyVersion": "1.5.0.5",
+            "fileVersion": "1.5.0.5"
+          }
+        }
+      },
+      "HtmlRenderer.PdfSharp/1.5.0.6": {
+        "dependencies": {
+          "HtmlRenderer.Core": "1.5.0.5",
+          "PDFsharp": "1.32.3057"
+        },
+        "runtime": {
+          "lib/net45/HtmlRenderer.PdfSharp.dll": {
+            "assemblyVersion": "1.5.0.6",
+            "fileVersion": "1.5.0.6"
+          }
+        }
+      },
+      "PDFsharp/1.32.3057": {
+        "runtime": {
+          "lib/net20/PdfSharp.Charting.dll": {
+            "assemblyVersion": "1.32.3057.0",
+            "fileVersion": "1.32.3057.0"
+          },
+          "lib/net20/PdfSharp.dll": {
+            "assemblyVersion": "1.32.3057.0",
+            "fileVersion": "1.32.3057.0"
+          }
+        },
+        "resources": {
+          "lib/net20/de/PdfSharp.Charting.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net20/de/PdfSharp.resources.dll": {
+            "locale": "de"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CrossCutting.PdfHelper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HtmlRenderer.Core/1.5.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QfZkSOb8HomRkKW3EAjT/VT48x6q+bgK4IBA9gFF+5FVTbvmMEIm42NsXEx/LTBHMssnQTPe94X0Bi8KdUIVQA==",
+      "path": "htmlrenderer.core/1.5.0.5",
+      "hashPath": "htmlrenderer.core.1.5.0.5.nupkg.sha512"
+    },
+    "HtmlRenderer.PdfSharp/1.5.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uk2lzFa/0zQSk8im2CX8ROXlqy8YAJUG28b5/G8wa0YNdO6+04bEl3iZCaThkcyNWnnIsHCn5hWR3vZjc6JhmA==",
+      "path": "htmlrenderer.pdfsharp/1.5.0.6",
+      "hashPath": "htmlrenderer.pdfsharp.1.5.0.6.nupkg.sha512"
+    },
+    "PDFsharp/1.32.3057": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M8w6e4R+jA1j3ddPCY6jNnb8RG21ZgCr+ENapwaH5NPzNl600f1wOcCPY2hEO+jb0aCGjcMHrWk/K+PC1cw0PQ==",
+      "path": "pdfsharp/1.32.3057",
+      "hashPath": "pdfsharp.1.32.3057.nupkg.sha512"
+    }
+  }
+}
