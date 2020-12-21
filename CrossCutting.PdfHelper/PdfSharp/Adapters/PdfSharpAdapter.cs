@@ -130,14 +130,14 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
             }
             catch (FileNotFoundException)
             {
-                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                {
-                    Console.WriteLine("I'm Linux and this is a BUG");
-                    
-                    var sSupportedFonts = resolveLinuxFontFiles();
-                    FontResolver.SetupFontsFiles(sSupportedFonts);
-                }
-                xFont = new XFont("Lato", size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
+                if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) throw;
+
+                Console.WriteLine("I'm Linux and this is a BUG");
+
+                var sSupportedFonts = resolveLinuxFontFiles();
+                FontResolver.SetupFontsFiles(sSupportedFonts);
+
+                xFont = new XFont("Segoe UI", size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
             }
 
             return new FontAdapter(xFont);
@@ -169,10 +169,19 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
                             {
                                 Console.WriteLine($"{enumerateDirectory} directory inside path --> the fonts.conf file group dir");
 
-                                foreach (string str in Directory.EnumerateFiles(enumerateDirectory)
+                                var pathFont = Path.Combine(path, enumerateDirectory);
+                                Console.WriteLine($"{pathFont} directory inside pathFont");
+
+                                foreach (string str in Directory.EnumerateDirectories(pathFont)
                                     .Where<string>((Func<string, bool>) (x => ttfRegex.IsMatch(x))))
                                 {
-                                    Console.WriteLine($"{str} added in stringList - directory inside path --> the fonts.conf file group dir");
+                                    //}
+
+                                    //foreach (string str in Directory.EnumerateFiles(enumerateDirectory)
+                                    //    .Where<string>((Func<string, bool>) (x => ttfRegex.IsMatch(x))))
+                                    //{
+                                    Console.WriteLine(
+                                        $"{str} added in stringList - directory inside path --> the fonts.conf file group dir");
 
                                     stringList.Add(str);
                                 }
@@ -183,8 +192,7 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
             }
 
             var strresult = string.Join(", ", stringList.ToArray()); 
-            Console.WriteLine($"{strresult}:  added in stringList ");
-
+            Console.WriteLine($"{strresult}:  resulted into stringList ");
 
             return stringList.ToArray();
         }
