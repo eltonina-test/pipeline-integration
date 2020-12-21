@@ -3,22 +3,29 @@ using CrossCutting.Core.Pdf;
 using CrossCutting.Core.Templating;
 using CrossCutting.PdfHelper.Tests.TemplateExample;
 using CrossCutting.Templating.Handlebars;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using PdfSharpCore.Utils;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace CrossCutting.PdfHelper.Tests
 {
     public class When_generate_html_from_template
     {
+        private readonly ITestOutputHelper _testOutputHelper;
         private Stream _resource = null;
         private readonly PdfCustomGenerator _pdfCustomGenerator;
         private readonly PdfConfig _pdfMargin;
 
-        public When_generate_html_from_template()
+        public When_generate_html_from_template(ITestOutputHelper testOutputHelper)
         {
+            _testOutputHelper = testOutputHelper;
             _pdfCustomGenerator = new PdfCustomGenerator();
 
             _pdfMargin = new PdfConfig()
@@ -81,6 +88,28 @@ namespace CrossCutting.PdfHelper.Tests
         [Fact]
         public async Task Given_list_of_examples_should_merge_all_streams_in_one_file_handlebar_format()
         {
+            string[] supportedFonts;
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                supportedFonts = Directory.GetFiles("/Library/Fonts/", "*.ttf", SearchOption.AllDirectories);
+               
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                supportedFonts = resolveLinuxFontFiles(); 
+            }
+            else
+            {
+                if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    throw new NotImplementedException("FontResolver not implemented for this platform (PdfSharpCore.Utils.FontResolver.cs).");
+                supportedFonts = Directory.GetFiles(Environment.ExpandEnvironmentVariables("%SystemRoot%\\Fonts"), "*.ttf", SearchOption.AllDirectories);
+            }
+
+            foreach (var font in supportedFonts)
+            {
+                _testOutputHelper.WriteLine(font);
+            }
+
             var fixture = new Fixture();
             var fileName = "testFileSummed.pdf";
 
@@ -147,6 +176,35 @@ namespace CrossCutting.PdfHelper.Tests
             if (File.Exists(fileName)) File.Delete(fileName);
 
             Dispose();
+        }
+
+
+
+        private static string[] resolveLinuxFontFiles()
+        {
+            List<string> stringList = new List<string>();
+            Regex regex = new Regex("<dir>(?<dir>.*)</dir>", RegexOptions.Compiled);
+            Regex ttfRegex = new Regex("\\.ttf", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+          
+            using (StreamReader streamReader = new StreamReader((Stream)File.OpenRead("/etc/fonts/fonts.conf")))
+            {
+                string input;
+                while ((input = streamReader.ReadLine()) != null)
+                {
+                    Match match = regex.Match(input);
+                    if (!match.Success) continue;
+
+                    var path = match.Groups["dir"].Value.Replace("~", Environment.GetEnvironmentVariable("HOME"));
+                    if (!Directory.Exists(path)) continue;
+                  
+                    foreach (string enumerateDirectory in Directory.EnumerateDirectories(path))
+                    {
+                        foreach (string str in Directory.EnumerateFiles(enumerateDirectory).Where<string>((Func<string, bool>)(x => ttfRegex.IsMatch(x))))
+                            stringList.Add(str);
+                    }
+                }
+            }
+            return stringList.ToArray();
         }
 
         private void Dispose()

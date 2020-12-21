@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting.PdfHelper", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting.PdfHelper.Tests", "CrossCutting.PdfHelper.Tests\CrossCutting.PdfHelper.Tests.csproj", "{CE2400D7-F749-4E96-8155-3EFF6EFA84C6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7B36A80E-B888-4F2E-A22A-F8DB394B902A}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
