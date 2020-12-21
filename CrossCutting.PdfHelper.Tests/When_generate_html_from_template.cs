@@ -25,8 +25,7 @@ namespace CrossCutting.PdfHelper.Tests
         public When_generate_html_from_template(ITestOutputHelper testOutputHelper)
         {
             _testOutputHelper = testOutputHelper;
-            PdfSharpAdapter.Instance.SetFonts();
-
+           
             _pdfCustomGenerator = new PdfCustomGenerator();
 
             _pdfMargin = new PdfConfig()

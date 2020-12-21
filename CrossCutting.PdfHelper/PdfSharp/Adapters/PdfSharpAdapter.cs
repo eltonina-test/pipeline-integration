@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using CrossCutting.PdfHelper.HtmlRenderer.Adapters;
 using CrossCutting.PdfHelper.HtmlRenderer.Adapters.Entities;
 using CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Utilities;
 using PdfSharpCore.Drawing;
-using PdfSharpCore.Pdf; 
+using PdfSharpCore.Pdf;
+using PdfSharpCore.Utils;
 
 namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
 {
@@ -43,7 +49,7 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
 
             foreach (var family in families.Families)
             {
-                Console.WriteLine(family.Name);
+             //    Console.WriteLine(family.Name);
                 var xFontFamily = new XFontFamily(family.Name);
                 var fontFamilyAdapter = new FontFamilyAdapter(xFontFamily);
 
@@ -119,15 +125,70 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
             XFont xFont = null;
             try
             {
+                Console.WriteLine($"{family} - {size} - {fontStyle}");
                 xFont = new XFont(family, size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
             }
             catch (FileNotFoundException)
             {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Console.WriteLine("I'm Linux and this is a BUG");
+                    
+                    var sSupportedFonts = resolveLinuxFontFiles();
+                    FontResolver.SetupFontsFiles(sSupportedFonts);
+                }
                 xFont = new XFont("Lato", size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
             }
 
             return new FontAdapter(xFont);
         }
+
+
+        private static string[] resolveLinuxFontFiles()
+        {
+            List<string> stringList = new List<string>();
+            Regex regex = new Regex("<dir>(?<dir>.*)</dir>", RegexOptions.Compiled);
+            Regex ttfRegex = new Regex("\\.ttf", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        
+            using (StreamReader streamReader = new StreamReader((Stream)File.OpenRead("/etc/fonts/fonts.conf")))
+            {
+                Console.WriteLine("Entering the fonts.conf file");
+                string input;
+                while ((input = streamReader.ReadLine()) != null)
+                {
+                    Match match = regex.Match(input);
+                    if (match.Success)
+                        Console.WriteLine("Match found in the fonts.conf file");
+                    {
+                        string path = match.Groups["dir"].Value.Replace("~", Environment.GetEnvironmentVariable("HOME"));
+                        if (Directory.Exists(path))
+                        {
+                            Console.WriteLine("path found inside the fonts.conf file group dir");
+
+                            foreach (string enumerateDirectory in Directory.EnumerateDirectories(path))
+                            {
+                                Console.WriteLine($"{enumerateDirectory} directory inside path --> the fonts.conf file group dir");
+
+                                foreach (string str in Directory.EnumerateFiles(enumerateDirectory)
+                                    .Where<string>((Func<string, bool>) (x => ttfRegex.IsMatch(x))))
+                                {
+                                    Console.WriteLine($"{str} added in stringList - directory inside path --> the fonts.conf file group dir");
+
+                                    stringList.Add(str);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            var strresult = string.Join(", ", stringList.ToArray()); 
+            Console.WriteLine($"{strresult}:  added in stringList ");
+
+
+            return stringList.ToArray();
+        }
+
 
         protected override RFont CreateFontInt(RFontFamily family, double size, RFontStyle style)
         {
