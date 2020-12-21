@@ -123,9 +123,9 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
             }
             catch (FileNotFoundException)
             {
-                var fontDefault = Path.Combine("Fonts");
+                xFont = new XFont("Lato", size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
             }
-            
+
             return new FontAdapter(xFont);
         }
 
