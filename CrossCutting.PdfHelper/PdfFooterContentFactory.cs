@@ -24,8 +24,7 @@ namespace CrossCutting.PdfHelper
         public static IPdfFooterTextContent PageNumberContent => new PdfFooterTextContent
         {
             Content = "Page [{0}] of [{1}]",
-            ContentType = PdfFooterContentType.String,
-            FontFamilyName = "Lato",
+            ContentType = PdfFooterContentType.String, 
             LineAlignment = PdfFooterLineAlignment.Far,
             TextAlignment = PdfFooterTextAlignment.Center,
             SizeEm = 12,
@@ -39,8 +38,7 @@ namespace CrossCutting.PdfHelper
             Content = "[{0}] • Visit History Record",
             ContentType = PdfFooterContentType.String,
             TextAlignment = PdfFooterTextAlignment.Left,
-            LineAlignment = PdfFooterLineAlignment.Far,
-            FontFamilyName = "Lato",
+            LineAlignment = PdfFooterLineAlignment.Far, 
             SizeEm = 12,
             Color = PdfCustomColors.DarkGray,
             InflatePositionBoxWidth = -30,
@@ -51,8 +49,7 @@ namespace CrossCutting.PdfHelper
         {
             Content = @"Powered by Doctoralia",
             ContentType = PdfFooterContentType.String,
-            UseBoxPosition = false,
-            FontFamilyName = "Lato",
+            UseBoxPosition = false, 
             SizeEm = 12,
             Color = PdfCustomColors.DarkGray,
             InflatePositionBoxWidth = -30,

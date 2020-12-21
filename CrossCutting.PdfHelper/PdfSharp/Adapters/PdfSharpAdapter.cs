@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
@@ -13,7 +14,7 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
     /// <summary>
     /// Adapter for PdfSharp library platform.
     /// </summary>
-    internal sealed class PdfSharpAdapter : RAdapter
+    public sealed class PdfSharpAdapter : RAdapter
     {
         #region Fields and Consts
 
@@ -33,21 +34,24 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
             AddFontFamilyMapping("monospace", "Courier New");
             AddFontFamilyMapping("Helvetica", "Arial");
 
+            SetFonts();
+        }
+
+        public void SetFonts()
+        {
             var families = new InstalledFontCollection();
 
             foreach (var family in families.Families)
             {
                 AddFontFamily(new FontFamilyAdapter(new XFontFamily(family.Name)));
+                Debug.WriteLine(family.Name);
             }
         }
 
         /// <summary>
         /// Singleton instance of global adapter.
         /// </summary>
-        public static PdfSharpAdapter Instance
-        {
-            get { return _instance; }
-        }
+        public static PdfSharpAdapter Instance => _instance;
 
         protected override RColor GetColorInt(string colorName)
         {

@@ -23,15 +23,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {},
           "https://pkgs.dev.azure.com/docplanner/_packaging/dralia/nuget/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "netcoreapp5.0",
             "projectReferences": {
               "C:\\Users\\Jesus\\repos\\__custom\\pipeline-integration\\CrossCutting.PdfHelper\\CrossCutting.PdfHelper.csproj": {
                 "projectPath": "C:\\Users\\Jesus\\repos\\__custom\\pipeline-integration\\CrossCutting.PdfHelper\\CrossCutting.PdfHelper.csproj"
@@ -46,8 +46,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "netcoreapp5.0",
           "dependencies": {
             "AutoFixture": {
               "target": "Package",

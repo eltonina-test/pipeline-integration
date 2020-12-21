@@ -7,7 +7,7 @@ namespace CrossCutting.PdfHelper
 {
     public class PdfFooterTextContent : PdfFooterContent, IPdfFooterTextContent
     {
-        public string FontFamilyName { get; set; }
+        public string FontFamilyName { get; set; } = string.Empty;
         public double SizeEm { get; set; }
         public FontStyle FontStyle { get; set; }
         public PdfFooterTextAlignment TextAlignment { get; set; }
