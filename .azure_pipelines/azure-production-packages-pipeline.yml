@@ -26,7 +26,11 @@ steps:
 
 - bash: fc-list
 - bash: ls /etc/fonts/
-- bash: ls /usr/share/fonts/type1/lato && ls /usr/share/fonts/cmap/lato && ls /usr/share/fonts/cMap/lato && ls /usr/share/fonts/truetype/lato
+- bash: ls /usr/share/fonts/type1 && ls /usr/share/fonts/cmap && ls /usr/share/fonts/cMap && ls /usr/share/fonts/truetype
+- bash: ls /usr/share/fonts/type1/lato 
+- bash: ls /usr/share/fonts/cmap/lato 
+- bash: ls /usr/share/fonts/cMap/lato
+- bash: ls /usr/share/fonts/truetype/lato
 
 # - task: DotNetCoreCLI@2
 #   displayName: 'Test'
