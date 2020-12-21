@@ -43,8 +43,11 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
 
             foreach (var family in families.Families)
             {
-                AddFontFamily(new FontFamilyAdapter(new XFontFamily(family.Name)));
-                Debug.WriteLine(family.Name);
+                Console.WriteLine(family.Name);
+                var xFontFamily = new XFontFamily(family.Name);
+                var fontFamilyAdapter = new FontFamilyAdapter(xFontFamily);
+
+                AddFontFamily(fontFamilyAdapter);
             }
         }
 
@@ -113,7 +116,16 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
         protected override RFont CreateFontInt(string family, double size, RFontStyle style)
         {
             var fontStyle = (XFontStyle)((int)style);
-            var xFont = new XFont(family, size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
+            XFont xFont = null;
+            try
+            {
+                xFont = new XFont(family, size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
+            }
+            catch (FileNotFoundException)
+            {
+                var fontDefault = Path.Combine("Fonts");
+            }
+            
             return new FontAdapter(xFont);
         }
 

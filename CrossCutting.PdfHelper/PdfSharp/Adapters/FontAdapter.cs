@@ -44,30 +44,15 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
         /// <summary>
         /// the underline win-forms font.
         /// </summary>
-        public XFont Font
-        {
-            get { return _font; }
-        }
+        public XFont Font => _font;
 
-        public override double Size
-        {
-            get { return _font.Size; }
-        }
+        public override double Size => _font.Size;
 
-        public override double UnderlineOffset
-        {
-            get { return _underlineOffset; }
-        }
+        public override double UnderlineOffset => _underlineOffset;
 
-        public override double Height
-        {
-            get { return _height; }
-        }
+        public override double Height => _height;
 
-        public override double LeftPadding
-        {
-            get { return _height / 6f; }
-        }
+        public override double LeftPadding => _height / 6f;
 
 
         public override double GetWhitespaceWidth(RGraphics graphics)
