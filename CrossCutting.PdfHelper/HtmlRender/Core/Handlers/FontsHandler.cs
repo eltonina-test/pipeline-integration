@@ -33,7 +33,8 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.Core.Handlers
         /// <summary>
         /// cache of all the font used not to create same font again and again
         /// </summary>
-        private readonly ConcurrentDictionary<string, Dictionary<double, Dictionary<RFontStyle, RFont>>> _fontsCache = new ConcurrentDictionary<string, Dictionary<double, Dictionary<RFontStyle, RFont>>>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly ConcurrentDictionary<string, ConcurrentDictionary<double, ConcurrentDictionary<RFontStyle, RFont>>> _fontsCache = 
+            new ConcurrentDictionary<string, ConcurrentDictionary<double, ConcurrentDictionary<RFontStyle, RFont>>>(StringComparer.InvariantCultureIgnoreCase);
 
         #endregion
 
@@ -149,13 +150,13 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.Core.Handlers
                 }
                 else
                 {
-                    _fontsCache[family][size] = new Dictionary<RFontStyle, RFont>();
+                    _fontsCache[family][size] = new ConcurrentDictionary<RFontStyle, RFont>();
                 }
             }
             else
             {
-                _fontsCache[family] = new Dictionary<double, Dictionary<RFontStyle, RFont>>();
-                _fontsCache[family][size] = new Dictionary<RFontStyle, RFont>();
+                _fontsCache[family] = new ConcurrentDictionary<double, ConcurrentDictionary<RFontStyle, RFont>>();
+                _fontsCache[family][size] = new ConcurrentDictionary<RFontStyle, RFont>();
             }
             return font;
         }
