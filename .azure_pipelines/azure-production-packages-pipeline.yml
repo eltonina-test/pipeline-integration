@@ -18,19 +18,25 @@ variables:
 
 steps:
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build'
-  inputs:
-    command: 'build'
-    projects: '$(solution)'
+# - task: DotNetCoreCLI@2
+#   displayName: 'Build'
+#   inputs:
+#     command: 'build'
+#     projects: '$(solution)'
 
 - bash: fc-list
 - bash: ls /etc/fonts/
-- task: DotNetCoreCLI@2
-  displayName: 'Test'
-  inputs:
-    command: 'test'
-    projects: '$(solution)'
+- bash: ls /usr/share/fonts/type1 && ls /usr/share/fonts/cmap && ls /usr/share/fonts/cMap && ls /usr/share/fonts/truetype
+- bash: ls /usr/share/fonts/type1/lato 
+- bash: ls /usr/share/fonts/cmap/lato 
+- bash: ls /usr/share/fonts/cMap/lato
+- bash: ls /usr/share/fonts/truetype/lato
+
+# - task: DotNetCoreCLI@2
+#   displayName: 'Test'
+#   inputs:
+#     command: 'test'
+#     projects: '$(solution)'
 
 # # - task: DotNetCoreCLI@2
   # # displayName: 'Packing CrossCutting packages'
