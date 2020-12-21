@@ -26,6 +26,7 @@ steps:
 
 - bash: fc-list
 - bash: ls /etc/fonts/
+- bash: ls /usr/share/fonts/type1 && ls /usr/share/fonts/cmap && ls /usr/share/fonts/cMap && ls /usr/share/fonts/truetype 
 - task: DotNetCoreCLI@2
   displayName: 'Test'
   inputs:
