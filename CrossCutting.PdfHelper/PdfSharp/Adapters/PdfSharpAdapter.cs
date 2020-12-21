@@ -167,23 +167,24 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
 
                             foreach (string enumerateDirectory in Directory.EnumerateDirectories(path))
                             {
-                                Console.WriteLine($"{enumerateDirectory} directory inside path --> the fonts.conf file group dir");
+                                Console.WriteLine(
+                                    $"{enumerateDirectory} directory inside path --> the fonts.conf file group dir");
 
                                 var pathFont = Path.Combine(path, enumerateDirectory);
-                                Console.WriteLine($"{pathFont} directory inside pathFont");
 
-                                foreach (string str in Directory.EnumerateDirectories(pathFont)
-                                    .Where<string>((Func<string, bool>) (x => ttfRegex.IsMatch(x))))
+                                foreach (string strDir in Directory.EnumerateDirectories(pathFont))
                                 {
-                                    //}
+                                    Console.WriteLine($"{strDir} directory inside pathFont");
+                                   
+                                    foreach (string str in Directory.EnumerateFiles(strDir)
+                                        .Where<string>((Func<string, bool>) (x => ttfRegex.IsMatch(x))))
+                                    {
+                                        Console.WriteLine(
+                                            $"{str} added in stringList - directory inside path --> the fonts.conf file group dir");
 
-                                    //foreach (string str in Directory.EnumerateFiles(enumerateDirectory)
-                                    //    .Where<string>((Func<string, bool>) (x => ttfRegex.IsMatch(x))))
-                                    //{
-                                    Console.WriteLine(
-                                        $"{str} added in stringList - directory inside path --> the fonts.conf file group dir");
+                                        stringList.Add(str);
+                                    }
 
-                                    stringList.Add(str);
                                 }
                             }
                         }
