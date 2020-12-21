@@ -25,7 +25,7 @@ steps:
     projects: '$(solution)'
 
 - bash: fc-list
-
+- bash: ls /etc/fonts/
 - task: DotNetCoreCLI@2
   displayName: 'Test'
   inputs:
