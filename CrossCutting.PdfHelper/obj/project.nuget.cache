@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "d2AkukMyzBHPs6ZVF+clmsByAHb8UOuRVVtkf0GeJdv0o4TX/zAvVf5CpXpYs5bc9/nMcAUPXV7NVi/Pb0CkXQ==",
+  "dgSpecHash": "oyL05T/R9AYPWa/h/Gs0UI7Mgr8AZ7ohy9zSnOgNiUzGB6USc2+qSt4jKrvMa0LEoPpR2qAbx8JsbOWVXUZuEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jesus\\repos\\__custom\\pipeline-integration\\CrossCutting.PdfHelper\\CrossCutting.PdfHelper.csproj",
   "expectedPackageFiles": [
@@ -20,7 +20,6 @@
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.extensions.webencoders\\2.2.0\\microsoft.extensions.webencoders.2.2.0.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
-    "C:\\Users\\Jesus\\.nuget\\packages\\pdfsharpcore\\1.2.10\\pdfsharpcore.1.2.10.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\sixlabors.fonts\\1.0.0-beta0013\\sixlabors.fonts.1.0.0-beta0013.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\sixlabors.imagesharp\\1.0.0\\sixlabors.imagesharp.1.0.0.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",

@@ -686,24 +686,6 @@
           "lib/netstandard2.0/NuGet.Frameworks.dll": {}
         }
       },
-      "PdfSharpCore/1.2.10": {
-        "type": "package",
-        "dependencies": {
-          "SixLabors.Fonts": "1.0.0-beta0013",
-          "SixLabors.ImageSharp": "1.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/PdfSharpCore.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/PdfSharpCore.dll": {}
-        },
-        "resource": {
-          "lib/netstandard2.0/de/PdfSharpCore.resources.dll": {
-            "locale": "de"
-          }
-        }
-      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -2034,7 +2016,7 @@
         "dependencies": {
           "CrossCutting.Core": "5.1.0",
           "Microsoft.AspNetCore.StaticFiles": "2.2.0",
-          "PdfSharpCore": "1.2.10",
+          "PdfSharpCore": "1.0.0",
           "System.Drawing.Common": "5.0.0"
         },
         "compile": {
@@ -2042,6 +2024,20 @@
         },
         "runtime": {
           "bin/placeholder/CrossCutting.PdfHelper.dll": {}
+        }
+      },
+      "PdfSharpCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "SixLabors.Fonts": "1.0.0-beta0013",
+          "SixLabors.ImageSharp": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PdfSharpCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PdfSharpCore.dll": {}
         }
       }
     }
@@ -2853,21 +2849,6 @@
         "lib/netstandard2.0/NuGet.Frameworks.xml",
         "nuget.frameworks.5.0.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
-      ]
-    },
-    "PdfSharpCore/1.2.10": {
-      "sha512": "oMInLILYYO6GJhwY58cNcsZasN3CO7G51Tcg/pEJCGNp+H2puH4st5ogQ/uEgbpxtPMaWtS9v2cA4cQWowaRkQ==",
-      "type": "package",
-      "path": "pdfsharpcore/1.2.10",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard1.3/PdfSharpCore.dll",
-        "lib/netstandard1.3/de/PdfSharpCore.resources.dll",
-        "lib/netstandard2.0/PdfSharpCore.dll",
-        "lib/netstandard2.0/de/PdfSharpCore.resources.dll",
-        "pdfsharpcore.1.2.10.nupkg.sha512",
-        "pdfsharpcore.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -6657,6 +6638,11 @@
       "type": "project",
       "path": "../CrossCutting.PdfHelper/CrossCutting.PdfHelper.csproj",
       "msbuildProject": "../CrossCutting.PdfHelper/CrossCutting.PdfHelper.csproj"
+    },
+    "PdfSharpCore/1.0.0": {
+      "type": "project",
+      "path": "../PdfSharpCore/PdfSharpCore.csproj",
+      "msbuildProject": "../PdfSharpCore/PdfSharpCore.csproj"
     }
   },
   "projectFileDependencyGroups": {

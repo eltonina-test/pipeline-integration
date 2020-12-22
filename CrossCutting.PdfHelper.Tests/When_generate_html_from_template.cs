@@ -156,35 +156,7 @@ namespace CrossCutting.PdfHelper.Tests
 
             Dispose();
         }
-
-
-
-        private static string[] resolveLinuxFontFiles()
-        {
-            List<string> stringList = new List<string>();
-            Regex regex = new Regex("<dir>(?<dir>.*)</dir>", RegexOptions.Compiled);
-            Regex ttfRegex = new Regex("\\.ttf", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-          
-            using (StreamReader streamReader = new StreamReader((Stream)File.OpenRead("/etc/fonts/fonts.conf")))
-            {
-                string input;
-                while ((input = streamReader.ReadLine()) != null)
-                {
-                    Match match = regex.Match(input);
-                    if (!match.Success) continue;
-
-                    var path = match.Groups["dir"].Value.Replace("~", Environment.GetEnvironmentVariable("HOME"));
-                    if (!Directory.Exists(path)) continue;
-                  
-                    foreach (string enumerateDirectory in Directory.EnumerateDirectories(path))
-                    {
-                        foreach (string str in Directory.EnumerateFiles(enumerateDirectory).Where<string>((Func<string, bool>)(x => ttfRegex.IsMatch(x))))
-                            stringList.Add(str);
-                    }
-                }
-            }
-            return stringList.ToArray();
-        }
+ 
 
         private void Dispose()
         {

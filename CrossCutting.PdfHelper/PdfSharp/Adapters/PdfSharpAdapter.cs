@@ -12,6 +12,7 @@ using CrossCutting.PdfHelper.HtmlRenderer.Adapters;
 using CrossCutting.PdfHelper.HtmlRenderer.Adapters.Entities;
 using CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Utilities;
 using PdfSharpCore.Drawing;
+using PdfSharpCore.Fonts;
 using PdfSharpCore.Pdf;
 using PdfSharpCore.Utils;
 
@@ -133,11 +134,11 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
                 if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) throw;
 
                 Console.WriteLine("I'm Linux and this is a BUG");
+                throw;
+                //    var sSupportedFonts = resolveLinuxFontFiles();
+                // FontResolver.SetupFontsFiles(sSupportedFonts); 
 
-                var sSupportedFonts = resolveLinuxFontFiles();
-                FontResolver.SetupFontsFiles(sSupportedFonts);
-
-                xFont = new XFont("Lato-Regular", size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
+                // xFont = new XFont("Lato-Regular", size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
             }
 
             return new FontAdapter(xFont);

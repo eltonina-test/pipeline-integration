@@ -208,24 +208,6 @@
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "PdfSharpCore/1.2.10": {
-        "type": "package",
-        "dependencies": {
-          "SixLabors.Fonts": "1.0.0-beta0013",
-          "SixLabors.ImageSharp": "1.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/PdfSharpCore.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/PdfSharpCore.dll": {}
-        },
-        "resource": {
-          "lib/netstandard2.0/de/PdfSharpCore.resources.dll": {
-            "locale": "de"
-          }
-        }
-      },
       "SixLabors.Fonts/1.0.0-beta0013": {
         "type": "package",
         "dependencies": {
@@ -328,6 +310,20 @@
         },
         "runtime": {
           "lib/netstandard2.0/TimeZoneConverter.dll": {}
+        }
+      },
+      "PdfSharpCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "SixLabors.Fonts": "1.0.0-beta0013",
+          "SixLabors.ImageSharp": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PdfSharpCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PdfSharpCore.dll": {}
         }
       }
     }
@@ -537,21 +533,6 @@
         "lib/netstandard2.0/Microsoft.Net.Http.Headers.xml",
         "microsoft.net.http.headers.2.2.0.nupkg.sha512",
         "microsoft.net.http.headers.nuspec"
-      ]
-    },
-    "PdfSharpCore/1.2.10": {
-      "sha512": "oMInLILYYO6GJhwY58cNcsZasN3CO7G51Tcg/pEJCGNp+H2puH4st5ogQ/uEgbpxtPMaWtS9v2cA4cQWowaRkQ==",
-      "type": "package",
-      "path": "pdfsharpcore/1.2.10",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard1.3/PdfSharpCore.dll",
-        "lib/netstandard1.3/de/PdfSharpCore.resources.dll",
-        "lib/netstandard2.0/PdfSharpCore.dll",
-        "lib/netstandard2.0/de/PdfSharpCore.resources.dll",
-        "pdfsharpcore.1.2.10.nupkg.sha512",
-        "pdfsharpcore.nuspec"
       ]
     },
     "SixLabors.Fonts/1.0.0-beta0013": {
@@ -896,13 +877,18 @@
         "timezoneconverter.3.2.0.nupkg.sha512",
         "timezoneconverter.nuspec"
       ]
+    },
+    "PdfSharpCore/1.0.0": {
+      "type": "project",
+      "path": "../PdfSharpCore/PdfSharpCore.csproj",
+      "msbuildProject": "../PdfSharpCore/PdfSharpCore.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "CrossCutting.Core >= 5.1.0",
       "Microsoft.AspNetCore.StaticFiles >= 2.2.0",
-      "PdfSharpCore >= 1.2.10",
+      "PdfSharpCore >= 1.0.0",
       "System.Drawing.Common >= 5.0.0"
     ]
   },
@@ -938,7 +924,11 @@
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Jesus\\repos\\__custom\\pipeline-integration\\PdfSharpCore\\PdfSharpCore.csproj": {
+              "projectPath": "C:\\Users\\Jesus\\repos\\__custom\\pipeline-integration\\PdfSharpCore\\PdfSharpCore.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -958,10 +948,6 @@
           "Microsoft.AspNetCore.StaticFiles": {
             "target": "Package",
             "version": "[2.2.0, )"
-          },
-          "PdfSharpCore": {
-            "target": "Package",
-            "version": "[1.2.10, )"
           },
           "System.Drawing.Common": {
             "target": "Package",

@@ -11,7 +11,7 @@
         "dependencies": {
           "CrossCutting.Core": "5.1.0",
           "Microsoft.AspNetCore.StaticFiles": "2.2.0",
-          "PdfSharpCore": "1.2.10",
+          "PdfSharpCore": "1.0.0",
           "System.Drawing.Common": "5.0.0"
         },
         "runtime": {
@@ -208,23 +208,6 @@
           }
         }
       },
-      "PdfSharpCore/1.2.10": {
-        "dependencies": {
-          "SixLabors.Fonts": "1.0.0-beta0013",
-          "SixLabors.ImageSharp": "1.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/PdfSharpCore.dll": {
-            "assemblyVersion": "1.2.10.0",
-            "fileVersion": "1.2.10.0"
-          }
-        },
-        "resources": {
-          "lib/netstandard2.0/de/PdfSharpCore.resources.dll": {
-            "locale": "de"
-          }
-        }
-      },
       "SixLabors.Fonts/1.0.0-beta0013": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0",
@@ -316,6 +299,20 @@
           "lib/netstandard2.0/TimeZoneConverter.dll": {
             "assemblyVersion": "3.2.0.0",
             "fileVersion": "3.2.0.0"
+          }
+        }
+      },
+      "PdfSharpCore/1.0.0": {
+        "dependencies": {
+          "SixLabors.Fonts": "1.0.0-beta0013",
+          "SixLabors.ImageSharp": "1.0.0"
+        },
+        "runtime": {
+          "PdfSharpCore.dll": {}
+        },
+        "resources": {
+          "de/PdfSharpCore.resources.dll": {
+            "locale": "de"
           }
         }
       }
@@ -439,13 +436,6 @@
       "path": "microsoft.net.http.headers/2.2.0",
       "hashPath": "microsoft.net.http.headers.2.2.0.nupkg.sha512"
     },
-    "PdfSharpCore/1.2.10": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-oMInLILYYO6GJhwY58cNcsZasN3CO7G51Tcg/pEJCGNp+H2puH4st5ogQ/uEgbpxtPMaWtS9v2cA4cQWowaRkQ==",
-      "path": "pdfsharpcore/1.2.10",
-      "hashPath": "pdfsharpcore.1.2.10.nupkg.sha512"
-    },
     "SixLabors.Fonts/1.0.0-beta0013": {
       "type": "package",
       "serviceable": true,
@@ -515,6 +505,11 @@
       "sha512": "sha512-f0UpF9H+ylj3qjO/l2+Yt0R77FFR327efJwsoXAys6J1fSYFcQPrPVhaGVVWoN79+PVutj0qzj79kuhSPN70gA==",
       "path": "timezoneconverter/3.2.0",
       "hashPath": "timezoneconverter.3.2.0.nupkg.sha512"
+    },
+    "PdfSharpCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

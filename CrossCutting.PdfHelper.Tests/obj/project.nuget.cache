@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5xKs11bSoLmejl+RsaFnvYLpYOcDD2tnZe4GmAa3BJ+dy0M618dyuT5H1hR4MQLK7bmBJXflJNFHTAVVjpbOTg==",
+  "dgSpecHash": "Lp3Cp1guagxcpw8ePCmVLmCEXZJpyBEbtm0ylRVCDSjW7XRBxhux+PlxoQjhhFt3NfqKkfZDJJB2xNZyIvUTmQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jesus\\repos\\__custom\\pipeline-integration\\CrossCutting.PdfHelper.Tests\\CrossCutting.PdfHelper.Tests.csproj",
   "expectedPackageFiles": [
@@ -37,7 +37,6 @@
     "C:\\Users\\Jesus\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
-    "C:\\Users\\Jesus\\.nuget\\packages\\pdfsharpcore\\1.2.10\\pdfsharpcore.1.2.10.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

@@ -16,3 +16,7 @@ C:\Users\Jesus\repos\__custom\pipeline-integration\CrossCutting.PdfHelper\obj\De
 C:\Users\Jesus\repos\__custom\pipeline-integration\CrossCutting.PdfHelper\obj\Debug\netstandard2.1\CrossCutting.PdfHelper.csproj.CoreCompileInputs.cache
 C:\Users\Jesus\repos\__custom\pipeline-integration\CrossCutting.PdfHelper\obj\Debug\netstandard2.1\CrossCutting.PdfHelper.dll
 C:\Users\Jesus\repos\__custom\pipeline-integration\CrossCutting.PdfHelper\obj\Debug\netstandard2.1\CrossCutting.PdfHelper.pdb
+C:\Users\Jesus\repos\__custom\pipeline-integration\CrossCutting.PdfHelper\bin\Debug\netstandard2.1\PdfSharpCore.dll
+C:\Users\Jesus\repos\__custom\pipeline-integration\CrossCutting.PdfHelper\bin\Debug\netstandard2.1\PdfSharpCore.pdb
+C:\Users\Jesus\repos\__custom\pipeline-integration\CrossCutting.PdfHelper\bin\Debug\netstandard2.1\de\PdfSharpCore.resources.dll
+C:\Users\Jesus\repos\__custom\pipeline-integration\CrossCutting.PdfHelper\obj\Debug\netstandard2.1\CrossCutting.PdfHelper.csproj.CopyComplete

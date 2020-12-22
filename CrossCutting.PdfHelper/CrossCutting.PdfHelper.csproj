@@ -7,12 +7,16 @@
   <ItemGroup>
     <PackageReference Include="CrossCutting.Core" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
-    <PackageReference Include="PdfSharpCore" Version="1.2.10" />
+    <!--<PackageReference Include="PdfSharpCore" Version="1.2.10" />-->
     <PackageReference Include="System.Drawing.Common" Version="5.0.0" /> 
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PdfSharpCore\PdfSharpCore.csproj" />
   </ItemGroup>
 
 </Project>
