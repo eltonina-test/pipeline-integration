@@ -137,7 +137,7 @@ namespace CrossCutting.PdfHelper.HtmlRenderer.PdfSharp.Adapters
                 var sSupportedFonts = resolveLinuxFontFiles();
                 FontResolver.SetupFontsFiles(sSupportedFonts);
 
-                xFont = new XFont("Segoe UI", size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
+                xFont = new XFont("Lato-Regular", size, fontStyle, new XPdfFontOptions(PdfFontEncoding.Unicode));
             }
 
             return new FontAdapter(xFont);
